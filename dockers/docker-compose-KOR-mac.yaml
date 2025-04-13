@@ -9,7 +9,7 @@ services:
     image: teddylee777/langgraph-mcp-agents:KOR-0.2.1
     platform: "linux/arm64"
     ports:
-      - "8585:8585"
+      - "18585:8585"
     env_file:
       - ./.env
     environment:
@@ -28,7 +28,7 @@ services:
       - ./data:/app/data:cached
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8585/_stcore/health"]
+      test: ["CMD", "curl", "--fail", "http://0.0.0.0:8585/_stcore/health"]
       interval: 30s
       timeout: 10s
       retries: 3
